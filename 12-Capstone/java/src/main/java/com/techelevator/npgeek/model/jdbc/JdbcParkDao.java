@@ -26,7 +26,7 @@ public class JdbcParkDao implements ParkDao {
 
 	@Override
 	public List<Park> getAllParks() {
-		String sql = "SELECT * FROM " + TABLE_NAME; 
+		String sql = "SELECT * FROM " + TABLE_NAME + " ORDER BY parkname ASC"; 
  		return jdbcTemplate.query(sql, new ParkRowMapper()); 		
 	}
 
@@ -39,8 +39,19 @@ public class JdbcParkDao implements ParkDao {
 
 	@Override
 	public List<Park> getFavoriteParks() {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "SELECT * FROM ( " +
+				"count(survey_result.parkcode) AS surveycount, park.parkcode, park.parkname, park.state, park.acreage, " +
+				"park.elevationinfeet, park.milesoftrail, park.numberofcampsites, " +
+				"park.climate, park.yearfounded, park.annualvisitorcount, " +
+				"park.inspirationalquote, park.inspirationalquotesource, " +
+				"park.parkdescription, park.entryfee, park.numberofanimalspecies " +
+				"FROM park " +
+				"LEFT JOIN survey_result " +
+				"ON survey_result.parkcode = park.parkcode " +
+				"GROUP BY survey_result.parkcode, park.parkcode " +
+				"ORDER BY count(survey_result.parkcode) DESC, park.parkname ASC) as surveyordering " +
+				"WHERE surveycount > 0";
+		return jdbcTemplate.query(sql, new ParkRowMapper());
 	}
 
 }

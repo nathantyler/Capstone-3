@@ -77,13 +77,32 @@ public class Weather {
 	public void setForecast(String forecast) {
 		this.forecast = forecast;
 	}
-	
+
 	public Double getLowInC() {
 		return null;
 	}
-	
+
 	public Double getHighInC() {
 		return null;
 	}
+
+	public String getWeatherImgName() {
+		    String delimiter = " ";
+		    int counter = 0;
+		    StringBuffer sb = new StringBuffer();
+		    for (String s : forecast.split(delimiter)) {
+		        if (counter == 0)
+		            sb.append(Character.toLowerCase(s.charAt(0)));
+		        else
+		            sb.append(Character.toUpperCase(s.charAt(0)));
+		        if (s.length() > 1) {
+		            sb.append(s.substring(1, s.length()).toLowerCase());
+		        }
+		        counter++;
+		    }
+		    return sb.toString();
+		}
+	
+	
 
 }

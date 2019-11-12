@@ -16,7 +16,7 @@ public class WeatherRowMapper implements RowMapper<Weather> {
 		w.setHigh(rs.getInt("high"));
 		w.setForecast(rs.getString("forecast"));
 		
-		return null;
+		return w;
 	}
 
 }

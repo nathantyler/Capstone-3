@@ -1,30 +1,27 @@
 package com.techelevator.npgeek.model;
 
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 
 public class Survey {
-	
+
 	private Integer surveyId; // INTEGER PRIMARY KEY DEFAULT NEXTVAL('seq_surveyId'),
-	
+
 	// Dropdown in Survey form
 	private String parkCode; // VARCHAR(10) NOT NULL,
-	
-	/*
-	 * @Email(message = "Email must be a valid email address.")
-	 * 
-	 * @Size(max = 100, message = "Email must be less than 100 characters.")
-	 * 
-	 * @NotBlank(message = "Email cannot be blank.")
-	 */
+
+	@Email(message = "Email must be a valid email address.")
+	@Size(max = 100, message = "Email must be less than 100 characters.")
+	@NotBlank(message = "Email cannot be blank.")
 	private String emailAddress; // VARCHAR(100) NOT NULL,
-	
+
 	// Dropdown for user state in form
 	private String state; // VARCHAR(30) NOT NULL,
-	
-	// Dropdown for activityLevel in form
+
+	@NotNull(message="Please select an activity level")
 	private String activityLevel; // VARCHAR(100) NOT NULL
 
 	/**
