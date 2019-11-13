@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
@@ -95,7 +96,8 @@
 			<form:option value="Washington">Washington</form:option>
 			<form:option value="West Virginia">West Virginia</form:option>
 			<form:option value="Wisconsin">Wisconsin</form:option>
-			<form:option value="Wyoming">Wyoming</form:option></form:select>
+			<form:option value="Wyoming">Wyoming</form:option>
+		</form:select>
 
 
 
