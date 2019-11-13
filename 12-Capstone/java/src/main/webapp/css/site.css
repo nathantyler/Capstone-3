@@ -1,21 +1,90 @@
 @charset "ISO-8859-1";
 
-/* .col-sm {
-	max-width: 30%;
-} */
 
+.park-image {
+	display: block;
+	margin: auto;
+	width: 90%;
+}
+
+#logo {
+	width: 40%;
+}
+
+.content {
+	margin-left: 4%;
+	margin-right: 4%;
+}
+
+/*----navigation bar----*/
+.navbar-nav {
+	flex-direction: row;
+}
+
+.navLink {
+	font-size: 16pt;
+}
+
+p {
+	font-size: 14pt;
+}
+
+/*----home page----*/
 .home-row {
 	margin-bottom: 30px;
 }
 
 .home-text {
-	margin-left: -30px;
+	
 }
 
-#logo {
-	width: 30%;
+
+
+/*----survey form-----*/
+.formcontainer {
+	text-align: center;
 }
 
-nav > a > p {
-	color: green;
+.formcontent {
+  display: inline-block;
 }
+
+.formbox {
+	border-radius: 3px;
+	padding: 4px;
+	margin: 3px;
+}
+
+.error {
+	color: red;
+}
+
+
+/*----Details page----*/
+
+#weatherImage {
+	display: block;
+	margin: auto;
+	width: 60%;
+}
+
+.weathertile {
+	margin-top: 10px;
+	background-color: white;
+	border-radius: 8px;
+	padding: 5px;
+	box-shadow: -2px -2px 7.5px 0px rgba(68, 68, 68, 0.4);
+}
+
+#detailsName, #detailsQuote{
+	text-align: center;
+}
+
+
+
+
+
+
+
+
+

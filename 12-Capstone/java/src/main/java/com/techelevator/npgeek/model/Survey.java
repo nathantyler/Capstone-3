@@ -10,7 +10,7 @@ public class Survey {
 
 	private Integer surveyId; // INTEGER PRIMARY KEY DEFAULT NEXTVAL('seq_surveyId'),
 
-	// Dropdown in Survey form
+	@NotBlank(message="Please select your Favorite National Park")
 	private String parkCode; // VARCHAR(10) NOT NULL,
 
 	@Email(message = "Email must be a valid email address.")
@@ -18,7 +18,7 @@ public class Survey {
 	@NotBlank(message = "Email cannot be blank.")
 	private String emailAddress; // VARCHAR(100) NOT NULL,
 
-	// Dropdown for user state in form
+	@NotBlank(message="Please select your state of residence")
 	private String state; // VARCHAR(30) NOT NULL,
 
 	@NotNull(message="Please select an activity level")
