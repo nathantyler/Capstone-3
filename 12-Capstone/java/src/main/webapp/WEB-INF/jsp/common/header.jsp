@@ -16,14 +16,17 @@
 <c:url var="homeUrl" value="/" />
 <c:url var="surveyUrl" value="survey" />
 
+<c:url var="parkLogo" value="img/logo.png" />
+<img id="logo" src="${ parkLogo }" />
 
-	<nav class="navbar navbar-default">
-		<ul class="nav navbar-nav">
-			<li><a href="${ homeUrl }">Home Page</a></li>
-			<li><a href="${ surveyUrl }">Survey</a></li>
-		</ul>
 
-	</nav>
+<nav>
+	<ul>
+		<li><a href="${ homeUrl }"><p>Home Page</p></a></li>
+		<li><a href="${ surveyUrl }"><p>Survey</p></a></li>
+	</ul>
+
+</nav>
 
 
 
