@@ -16,33 +16,19 @@
 
 
 	<div class="container">
-		<div class="row justify-content-md-center">
-
-
-
+		<div class="row">
 			<c:forEach var="park" items="${ parks }">
-				<div class="col-sm-auto">
+				<div class="col-sm-6">
 					<c:url var="parkImg"
 						value="img/parks/${ park.parkCode.toLowerCase() }.jpg" />
 					<c:url var="detailsLink" value="details?code=${ park.parkCode }" />
 					<c:set var="code" value="${ park.parkCode }" />
 					<a href="${ detailsLink }"><img src="${ parkImg }" /></a>
 				</div>
-				<div class="col col-sm-2">
-					<h3>
-						<c:out value="${ park.parkName }" />
-					</h3>
-
-					<p>
-						<c:out value="${ park.parkDescription }" />
-					</p>
+				<div class="col-sm-6">
+					<h3><c:out value="${ park.parkName }" /></h3>
+					<p><c:out value="${ park.parkDescription }" /></p>
 				</div>
-
-
-
-
-
-
 
 			</c:forEach>
 
