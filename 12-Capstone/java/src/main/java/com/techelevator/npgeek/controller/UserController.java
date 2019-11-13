@@ -2,6 +2,8 @@ package com.techelevator.npgeek.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,28 +25,34 @@ import com.techelevator.npgeek.model.WeatherDao;
 
 @Controller
 public class UserController {
-	
+
 	@Autowired
 	private ParkDao parkDao;
-	
+
 	@Autowired
 	private WeatherDao weatherDao;
-	
+
 	@Autowired
 	private SurveyDao surveyDao;
-	
+
 	@GetMapping("/")
 	public String displayParks(ModelMap model) {
 		model.addAttribute("parks", parkDao.getAllParks());
-		return "home";	
+		return "home";
 	}
-	
-	
+
 	@GetMapping("/details")
 	public String displayDetails(@RequestParam String code, ModelMap model) {
 		model.addAttribute("park", parkDao.getParkByParkCode(code));
 		model.addAttribute("weathers", weatherDao.getWeatherByParkCode(code));
-		return "details";	
+		return "details";
+	}
+
+	@PostMapping("/details")
+	public String changeTemperatureUnit(@RequestParam Boolean chooseCelcius, @RequestParam String code,
+			HttpSession session) {
+		session.setAttribute("inCelcius", chooseCelcius);
+		return "redirect:/details?code=" + code;
 	}
 
 	@GetMapping("/survey")
@@ -52,23 +60,27 @@ public class UserController {
 		model.addAttribute("parks", parkDao.getAllParks());
 		if (!model.containsAttribute("survey"))
 			model.addAttribute("survey", new Survey());
-		
-		return "survey";	
+
+		return "survey";
 	}
-	
+
 	@PostMapping("/submitSurvey")
-	public String submitSurvey(@Valid @ModelAttribute Survey survey, 
-			BindingResult result, RedirectAttributes flash ) {
-		if(result.hasErrors()) {
+	public String submitSurvey(@Valid @ModelAttribute Survey survey, BindingResult result, RedirectAttributes flash) {
+		if (result.hasErrors()) {
 			flash.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "survey", result);
 			flash.addFlashAttribute("survey", survey);
 			return "redirect:/survey";
 		}
-		
+
 		surveyDao.saveSurvey(survey);
-		
-		
-		return "redirect:/";
-		
+
+		return "redirect:/favorites";
+
+	}
+
+	@GetMapping
+	public String displayFavoriteParks(ModelMap models) {
+		models.addAttribute("favoriteParks", parkDao.getFavoriteParks());
+		return "favorites";
 	}
 }

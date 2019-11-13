@@ -34,6 +34,14 @@
 
 
 
+<c:set var="isCelcius" value="${ sessionScope.inCelcius }"/>
+<c:url var="celciusFormAction" value="details?code=${ park.parkCode }"></c:url>
+<form action="${ celciusFormAction }" method="POST">
+	<input type="radio" name="chooseCelcius" value="${ false }" <c:out value="${ isCelcius ? '' : 'checked' }"/>>Fahrenheit
+	<input type="radio" name="chooseCelcius" value="${ true }" <c:out value="${ isCelcius ? 'checked' : '' }"/>>Celcius
+	
+	<input type="submit" value="Submit!" />
+</form>
 
 <c:forEach var="weather" items="${ weathers }">
 
@@ -42,8 +50,9 @@
 
 <p><c:out value="${ weather.parkCode }"/></p>
 <p><c:out value="${ weather.fiveDayForecastValue }"/></p>
-<p><c:out value="${ weather.low }"/></p>
-<p><c:out value="${ weather.high }"/></p>
+
+<p><c:out value="${ inCelcius ? weather.lowInC : weather.low }"/><c:out value="${ isCelcius ? '° C' : '° F' }"/></p>
+<p><c:out value="${ inCelcius ? weather.highInC : weather.high }"/><c:out value="${ isCelcius ? '° C' : '° F' }"/></p>
 <p><c:out value="${ weather.forecast }"/></p>
 
 </c:forEach>

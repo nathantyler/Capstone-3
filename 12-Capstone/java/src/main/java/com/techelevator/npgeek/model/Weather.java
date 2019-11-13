@@ -78,12 +78,14 @@ public class Weather {
 		this.forecast = forecast;
 	}
 
-	public Double getLowInC() {
-		return null;
+	public Integer getLowInC() {
+		int fahr = low.intValue();		
+		return Integer.valueOf((fahr - 32) * 5/9);
 	}
 
-	public Double getHighInC() {
-		return null;
+	public Integer getHighInC() {
+		int fahr = high.intValue();		
+		return Integer.valueOf((fahr - 32) * 5/9);
 	}
 
 	public String getWeatherImgName() {

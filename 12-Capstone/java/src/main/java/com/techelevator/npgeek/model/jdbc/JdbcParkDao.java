@@ -39,18 +39,30 @@ public class JdbcParkDao implements ParkDao {
 
 	@Override
 	public List<Park> getFavoriteParks() {
-		String sql = "SELECT * FROM ( " +
-				"count(survey_result.parkcode) AS surveycount, park.parkcode, park.parkname, park.state, park.acreage, " +
-				"park.elevationinfeet, park.milesoftrail, park.numberofcampsites, " +
-				"park.climate, park.yearfounded, park.annualvisitorcount, " +
-				"park.inspirationalquote, park.inspirationalquotesource, " +
-				"park.parkdescription, park.entryfee, park.numberofanimalspecies " +
-				"FROM park " +
-				"LEFT JOIN survey_result " +
-				"ON survey_result.parkcode = park.parkcode " +
-				"GROUP BY survey_result.parkcode, park.parkcode " +
-				"ORDER BY count(survey_result.parkcode) DESC, park.parkname ASC) as surveyordering " +
-				"WHERE surveycount > 0";
+		String sql = "SELECT * FROM ( SELECT " +
+					 "count(survey_result.parkcode) AS surveycount, park.parkcode, "+
+					 "park.parkname, park.state, park.acreage, " +
+					 "park.elevationinfeet, park.milesoftrail, park.numberofcampsites, " +
+					 "park.climate, park.yearfounded, park.annualvisitorcount, " +
+					 "park.inspirationalquote, park.inspirationalquotesource, " +
+					 "park.parkdescription, park.entryfee, park.numberofanimalspecies " +
+					 "FROM park " +
+					 "LEFT JOIN survey_result " +
+					 "ON survey_result.parkcode = park.parkcode " +
+					 "GROUP BY survey_result.parkcode, park.parkcode " +
+					 "ORDER BY count(survey_result.parkcode) DESC, park.parkname ASC) as surveyordering " +
+					 "WHERE surveycount > 0";
+//		String sql = "SELECT count(survey_result.parkcode) AS surveycount, park.parkcode, park.parkname, park.state, park.acreage, " +
+//				"park.elevationinfeet, park.milesoftrail, park.numberofcampsites, " +
+//				"park.climate, park.yearfounded, park.annualvisitorcount, " +
+//				"park.inspirationalquote, park.inspirationalquotesource, " +
+//				"park.parkdescription, park.entryfee, park.numberofanimalspecies " +
+//				"FROM park " +
+//				"LEFT JOIN survey_result " +
+//				"ON survey_result.parkcode = park.parkcode " +
+//				"WHERE surveycount > 0 " +
+//				"GROUP BY survey_result.parkcode, park.parkcode " +				
+//				"ORDER BY surveycount DESC, park.parkname ASC";
 		return jdbcTemplate.query(sql, new ParkRowMapper());
 	}
 
