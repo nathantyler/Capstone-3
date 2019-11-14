@@ -1,5 +1,7 @@
 package com.techelevator.npgeek.model;
 
+import java.util.Objects;
+
 public class Park {
 
 	private String parkCode; // VARCHAR(10) PRIMARY KEY,
@@ -17,111 +19,111 @@ public class Park {
 	private String parkDescription; // TEXT NOT NULL,
 	private Integer entryFee; // INTEGER NOT NULL,
 	private Integer numberOfAnimalSpecies; // INTEGER NOT NULL
-	private Integer surveyCount;
+	private Integer surveyCount; // Only used sometimes
 	
 	/**
 	 * @return the parkCode
 	 */
 	public String getParkCode() {
-		return parkCode;
+		return this.parkCode;
 	}
 
 	/**
 	 * @return the parkName
 	 */
 	public String getParkName() {
-		return parkName;
+		return this.parkName;
 	}
 
 	/**
 	 * @return the state
 	 */
 	public String getState() {
-		return state;
+		return this.state;
 	}
 
 	/**
 	 * @return the acreage
 	 */
 	public Integer getAcreage() {
-		return acreage;
+		return this.acreage;
 	}
 
 	/**
 	 * @return the elevationInFeet
 	 */
 	public Integer getElevationInFeet() {
-		return elevationInFeet;
+		return this.elevationInFeet;
 	}
 
 	/**
 	 * @return the milesOfTrail
 	 */
 	public Double getMilesOfTrail() {
-		return milesOfTrail;
+		return this.milesOfTrail;
 	}
 
 	/**
 	 * @return the numberOfCampsites
 	 */
 	public Integer getNumberOfCampsites() {
-		return numberOfCampsites;
+		return this.numberOfCampsites;
 	}
 
 	/**
 	 * @return the climate
 	 */
 	public String getClimate() {
-		return climate;
+		return this.climate;
 	}
 
 	/**
 	 * @return the yearFounded
 	 */
 	public Integer getYearFounded() {
-		return yearFounded;
+		return this.yearFounded;
 	}
 
 	/**
 	 * @return the annualVisitorCount
 	 */
 	public Integer getAnnualVisitorCount() {
-		return annualVisitorCount;
+		return this.annualVisitorCount;
 	}
 
 	/**
 	 * @return the inspirationalQuote
 	 */
 	public String getInspirationalQuote() {
-		return inspirationalQuote;
+		return this.inspirationalQuote;
 	}
 
 	/**
 	 * @return the inspirationalQuoteSource
 	 */
 	public String getInspirationalQuoteSource() {
-		return inspirationalQuoteSource;
+		return this.inspirationalQuoteSource;
 	}
 
 	/**
 	 * @return the parkDescription
 	 */
 	public String getParkDescription() {
-		return parkDescription;
+		return this.parkDescription;
 	}
 
 	/**
 	 * @return the entryFee
 	 */
 	public Integer getEntryFee() {
-		return entryFee;
+		return this.entryFee;
 	}
 
 	/**
 	 * @return the numberOfAnimalSpecies
 	 */
 	public Integer getNumberOfAnimalSpecies() {
-		return numberOfAnimalSpecies;
+		return this.numberOfAnimalSpecies;
 	}
 
 	/**
@@ -230,11 +232,52 @@ public class Park {
 	}
 
 	public Integer getSurveyCount() {
-		return surveyCount;
+		return this.surveyCount;
 	}
 
 	public void setSurveyCount(Integer surveyCount) {
 		this.surveyCount = surveyCount;
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == this)
+			return true;
+		if (!(obj instanceof Park))
+			return false;
+		Park park = (Park) obj;
+		
+		return this.parkCode.equals(park.getParkCode()) && this.parkName.equals(park.getParkName()) && 
+			   this.state.equals(park.getState()) && this.acreage.equals(park.getAcreage()) &&
+			   this.elevationInFeet.equals(park.getElevationInFeet()) && this.milesOfTrail.equals(park.getMilesOfTrail()) &&
+			   this.numberOfCampsites.equals( park.getNumberOfCampsites()) &&
+			   this.climate.equals(park.getClimate()) && this.yearFounded.equals(park.getYearFounded()) &&
+			   this.annualVisitorCount.equals(park.getAnnualVisitorCount()) &&
+			   this.inspirationalQuote.equals(park.getInspirationalQuote()) && 
+			   this.inspirationalQuoteSource.equals(park.getInspirationalQuoteSource()) &&
+			   this.parkDescription.equals(park.getParkDescription()) &&
+			   this.entryFee.equals(park.getEntryFee()) && 
+			   this.numberOfAnimalSpecies.equals(park.getNumberOfAnimalSpecies());
+		
+	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(this.parkCode, this.parkName, this.state,
+				this.acreage, this.elevationInFeet, this.milesOfTrail, 
+				this.numberOfCampsites,	this.climate, this.yearFounded, 
+				this.annualVisitorCount, this.inspirationalQuote,
+				this.inspirationalQuoteSource, this.parkDescription, 
+				this.entryFee, this.numberOfAnimalSpecies);
+	}
+	
+	@Override
+	public String toString() {
+		return this.parkCode + this.parkName + this.state +
+				this.acreage + this.elevationInFeet + this.milesOfTrail + 
+				this.numberOfCampsites + this.climate + this.yearFounded + 
+				this.annualVisitorCount + this.inspirationalQuote +
+				this.inspirationalQuoteSource + this.parkDescription + 
+				this.entryFee + this.numberOfAnimalSpecies;
+	}
 }
