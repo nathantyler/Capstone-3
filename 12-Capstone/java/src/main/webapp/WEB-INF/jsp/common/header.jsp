@@ -30,6 +30,7 @@
 </head>
 <c:url var="homeUrl" value="/" />
 <c:url var="surveyUrl" value="survey" />
+<c:url var="favoritesUrl" value="favorites" />
 
 <c:url var="parkLogo" value="img/logo.png" />
 <img id="logo" src="${ parkLogo }" />
@@ -40,6 +41,7 @@
 		<ul class="nav navbar-nav">
 			<li><a class="navLink" href="${ homeUrl }">Home Page</a></li>
 			<li><a class="navLink" href="${ surveyUrl }">Survey</a></li>
+			<li><a class="navLink" href="${ favoritesUrl }">Favorites</a></li>
 		</ul>
 	
 </nav>

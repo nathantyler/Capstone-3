@@ -61,7 +61,11 @@ p {
 
 
 /*----Details page----*/
+#detailsName, #detailsQuote{
+	text-align: center;
+}
 
+/*----Weather forecast----*/
 #weatherImage {
 	display: block;
 	margin: auto;
@@ -80,6 +84,9 @@ p {
 	text-align: center;
 }
 
+#weathertile {
+	border-top:
+}
 
 
 

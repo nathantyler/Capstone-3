@@ -17,7 +17,8 @@ public class Park {
 	private String parkDescription; // TEXT NOT NULL,
 	private Integer entryFee; // INTEGER NOT NULL,
 	private Integer numberOfAnimalSpecies; // INTEGER NOT NULL
-
+	private Integer surveyCount;
+	
 	/**
 	 * @return the parkCode
 	 */
@@ -226,6 +227,14 @@ public class Park {
 	 */
 	public void setNumberOfAnimalSpecies(Integer numberOfAnimalSpecies) {
 		this.numberOfAnimalSpecies = numberOfAnimalSpecies;
+	}
+
+	public Integer getSurveyCount() {
+		return surveyCount;
+	}
+
+	public void setSurveyCount(Integer surveyCount) {
+		this.surveyCount = surveyCount;
 	}
 
 }

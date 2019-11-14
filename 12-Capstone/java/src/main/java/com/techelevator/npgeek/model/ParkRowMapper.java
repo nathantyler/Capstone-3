@@ -10,6 +10,14 @@ public class ParkRowMapper implements RowMapper<Park> {
 	@Override
 	public Park mapRow(ResultSet rs, int rowNum) throws SQLException {
 		Park park = new Park();
+		
+		try  {
+			park.setSurveyCount(rs.getInt("surveycount"));
+		}
+		catch (SQLException e) {
+			//System.out.println("An exception has occurred");
+		}
+		finally {
 		park.setParkCode(rs.getString("parkcode"));
 		park.setParkName(rs.getString("parkname"));
 		park.setState(rs.getString("state"));
@@ -24,6 +32,7 @@ public class ParkRowMapper implements RowMapper<Park> {
 		park.setParkDescription(rs.getString("parkdescription"));
 		park.setEntryFee(rs.getInt("entryfee"));
 		park.setNumberOfAnimalSpecies(rs.getInt("numberofanimalspecies"));
+		}
 		return park;
 	}
 

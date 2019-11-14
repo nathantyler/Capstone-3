@@ -16,27 +16,29 @@
 		<div class="content">
 
 			<div class="row justify-content-center">
-			<div class="col-sm-10">
-				<h1 id="detailsName">
-					<c:out value="${ park.parkName }" />
-				</h1>
-				<br/>
-				<p id="detailsQuote">
-					"<c:out value="${ park.inspirationalQuote }" />
-					" -
-					<c:out value="${ park.inspirationalQuoteSource }" />
-				</p>
-				
-				
-				<c:url var="parkImg"
-					value="img/parks/${ park.parkCode.toLowerCase() }.jpg" />
-				<img class="park-image" src="${ parkImg }" />
-				
-				<p>
+				<div class="col-sm-10">
+					<h1 id="detailsName">
+						<c:out value="${ park.parkName }" />
+					</h1>
+					<br />
+					<p id="detailsQuote">
+						"
+						<c:out value="${ park.inspirationalQuote }" />
+						" -
+						<c:out value="${ park.inspirationalQuoteSource }" />
+					</p>
+
+
+					<c:url var="parkImg"
+						value="img/parks/${ park.parkCode.toLowerCase() }.jpg" />
+					<img class="park-image" src="${ parkImg }" />
+
+					<p>
 						<c:out value="${ park.parkDescription }" />
-					</p> <br/>
-					</div>
-					</div>
+					</p>
+					<br />
+				</div>
+			</div>
 
 			<div class="row justify-content-center">
 				<div class="col-sm-5">
@@ -67,7 +69,7 @@
 				<!-- col div -->
 
 				<div class="col-sm-5">
-				
+
 					<p>
 						Climate:
 						<c:out value="${ park.climate }" />
@@ -95,30 +97,45 @@
 			</div>
 			<!-- row div -->
 			
-			
+<div class="panel-heading">
+<div class="panel panel-default">
+			<div class="row justify-content-center">
 
-			<c:set var="isCelcius" value="${ sessionScope.inCelcius }" />
-			<c:url var="celciusFormAction"
-				value="details?code=${ park.parkCode }"></c:url>
+				<div class="col-sm-8">
+				
+				
+				<h2>Five Day Weather Forcast</h2>
+
+					<c:set var="isCelcius" value="${ sessionScope.inCelcius }" />
+					<c:url var="celciusFormAction"
+						value="details?code=${ park.parkCode }"></c:url>
 
 
 
-			<form action="${ celciusFormAction }" method="POST">
+					<form action="${ celciusFormAction }" method="POST">
 
-				<input type="radio" name="chooseCelcius" value="${ false }"
-					<c:out value="${ isCelcius ? '' : 'checked' }"/>>Fahrenheit
-				<input type="radio" name="chooseCelcius" value="${ true }"
-					<c:out value="${ isCelcius ? 'checked' : '' }"/>>Celcius <input
-					type="submit" value="Submit!" />
+						<input type="radio" name="chooseCelcius" value="${ false }"
+							<c:out value="${ isCelcius ? '' : 'checked' }"/>>Fahrenheit
+						<input type="radio" name="chooseCelcius" value="${ true }"
+							<c:out value="${ isCelcius ? 'checked' : '' }"/>>Celcius
+						<input type="submit" value="Submit!" />
 
-			</form>
+					</form>
+					
+				</div>
+				<!-- col div -->
+			</div>
+			<!-- row div -->
+			</div> <!-- panel heading -->
 
+<div class="panel-body">
 			<div class="row justify-content-center">
 
 
 				<c:forEach var="weather" items="${ weathers }">
 
 					<div class="col-sm-2">
+					
 						<div class="weathertile">
 							<c:url var="weatherImg"
 								value="img/weather/${ weather.weatherImgName }.png" />
@@ -144,16 +161,24 @@
 							<p>
 								<c:out value="${ weather.temperatureMesage }" />
 							</p>
-						</div> <!-- weather tile -->
+						</div>
+						<!-- weather tile -->
 
-					</div> <!--  col div -->
+					</div>
+					<!--  col div -->
 				</c:forEach>
 
 
 
-			</div> <!-- row div -->
-		</div> <!--  content -->
-	</div> <!--  container fluid -->
+			</div>
+			<!-- row div -->
+			</div> <!-- panel body -->
+			
+			</div> <!-- panel -->
+		</div>
+		<!--  content -->
+	</div>
+	<!--  container fluid -->
 </body>
 </html>
 
