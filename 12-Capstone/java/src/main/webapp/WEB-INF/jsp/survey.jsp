@@ -6,12 +6,7 @@
 
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Survey</title>
-</head>
+
 <body>
 
 	
@@ -121,6 +116,6 @@
 		
 	</div>
 </body>
-</html>
+
 
 <c:import url="/WEB-INF/jsp/common/footer.jsp" />

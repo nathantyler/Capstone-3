@@ -28,6 +28,7 @@
 <meta charset="ISO-8859-1">
 <title>National Park Enthusiast</title>
 </head>
+
 <c:url var="homeUrl" value="/" />
 <c:url var="surveyUrl" value="survey" />
 <c:url var="favoritesUrl" value="favorites" />
@@ -46,7 +47,3 @@
 	
 </nav>
 
-
-
-
-</html>

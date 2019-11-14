@@ -5,12 +5,7 @@
 
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>home</title>
-</head>
+
 <body>
 
 	<div class="container-fluid">
@@ -53,6 +48,6 @@
 
 
 </body>
-</html>
+
 
 <c:import url="/WEB-INF/jsp/common/footer.jsp" />

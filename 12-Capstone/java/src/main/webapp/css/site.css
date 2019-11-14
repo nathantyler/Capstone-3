@@ -1,6 +1,23 @@
 @charset "ISO-8859-1";
 
 
+html {
+    height:100%;
+}
+body {
+    min-height:100%; position:relative;
+}
+.footer {
+    background-color: rgb(200,200,200);
+    height: 20px;
+    position:absolute; bottom:0px;
+    width: 100%;
+}
+
+
+
+
+
 .park-image {
 	display: block;
 	margin: auto;
@@ -25,9 +42,6 @@
 	font-size: 16pt;
 }
 
-p {
-	font-size: 14pt;
-}
 
 /*----home page----*/
 .home-row {
@@ -37,8 +51,9 @@ p {
 .home-text {
 	
 }
-
-
+.parkDescription {
+	font-size: 14pt;
+}
 
 /*----survey form-----*/
 .formcontainer {
@@ -61,9 +76,20 @@ p {
 
 
 /*----Details page----*/
-#detailsName, #detailsQuote{
+#detailsName{
 	text-align: center;
 }
+
+#detailsQuote{
+	text-align: center;
+	font-style: italic;
+	font-size: 14pt;
+}
+.detailsInfo {
+	font-size: 12pt;
+}
+
+
 
 /*----Weather forecast----*/
 #weatherImage {
@@ -80,15 +106,15 @@ p {
 	box-shadow: -2px -2px 7.5px 0px rgba(68, 68, 68, 0.4);
 }
 
-#detailsName, #detailsQuote{
-	text-align: center;
+.panel {
+	margin-top: 15px;
+	margin-bottom: 50px;
+	background-image: linear-gradient(to bottom right, #f5f9ff, #d7d7fc);
 }
-
-#weathertile {
-	border-top:
+.panel > .panel-heading {
+	 background-image: linear-gradient(to bottom right, #d7d7fc, #f5f9ff);
+    
 }
-
-
 
 
 
