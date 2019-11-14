@@ -5,12 +5,7 @@
 
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>home</title>
-</head>
+
 
 
 <body>
@@ -29,8 +24,8 @@
 				</div>
 				<div class="col-sm-7 home-row home-text">
 					<h1><c:out value="${ park.parkName }" /></h3>
-					<p>Location: <c:out value="${ park.state }" /></p>
-					<p><c:out value="${ park.parkDescription }" /></p>
+					<p class="detailsInfo">Location: <c:out value="${ park.state }" /></p>
+					<p class="parkDescription"><c:out value="${ park.parkDescription }" /></p>
 				</div>
 
 			</c:forEach>
@@ -38,8 +33,5 @@
 		</div>
 
 	</div>
-
-</body>
-</html>
 
 <c:import url="/WEB-INF/jsp/common/footer.jsp" />

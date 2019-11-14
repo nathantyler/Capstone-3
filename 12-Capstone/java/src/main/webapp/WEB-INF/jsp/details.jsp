@@ -4,12 +4,7 @@
 
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>details</title>
-</head>
+
 <body>
 
 	<div class="container-fluid">
@@ -22,18 +17,18 @@
 					</h1>
 					<br />
 					<p id="detailsQuote">
-						"
-						<c:out value="${ park.inspirationalQuote }" />
-						" -
+						"<c:out value="${ park.inspirationalQuote }" />" -
 						<c:out value="${ park.inspirationalQuoteSource }" />
 					</p>
+					<br/>
 
 
 					<c:url var="parkImg"
 						value="img/parks/${ park.parkCode.toLowerCase() }.jpg" />
 					<img class="park-image" src="${ parkImg }" />
 
-					<p>
+					<br/>
+					<p class="parkDescription">
 						<c:out value="${ park.parkDescription }" />
 					</p>
 					<br />
@@ -42,25 +37,25 @@
 
 			<div class="row justify-content-center">
 				<div class="col-sm-5">
-					<p>
+					<p class="detailsInfo">
 						Location:
 						<c:out value="${ park.state }" />
 					</p>
-					<p>
+					<p class="detailsInfo">
 						Acreage:
 						<c:out value="${ park.acreage }" />
 					</p>
-					<p>
+					<p class="detailsInfo">
 						Elevation:
 						<c:out value="${ park.elevationInFeet }" />
 						ft.
 					</p>
-					<p>
+					<p class="detailsInfo">
 						Hiking:
 						<c:out value="${ park.milesOfTrail }" />
 						miles of trails
 					</p>
-					<p>
+					<p class="detailsInfo">
 						Number of campsites:
 						<c:out value="${ park.numberOfCampsites }" />
 					</p>
@@ -70,24 +65,24 @@
 
 				<div class="col-sm-5">
 
-					<p>
+					<p class="detailsInfo">
 						Climate:
 						<c:out value="${ park.climate }" />
 					</p>
-					<p>
+					<p class="detailsInfo">
 						Founded in:
 						<c:out value="${ park.yearFounded }" />
 					</p>
-					<p>
+					<p class="detailsInfo">
 						Annual Visitors:
 						<c:out value="${ park.annualVisitorCount }" />
 					</p>
 
-					<p>
+					<p class="detailsInfo">
 						Number of animal Species:
 						<c:out value="${ park.numberOfAnimalSpecies }" />
 					</p>
-					<p>
+					<p class="detailsInfo">
 						Entry Fee: $
 						<c:out value="${ park.entryFee }" />
 					</p>
@@ -96,90 +91,92 @@
 				<!-- col div -->
 			</div>
 			<!-- row div -->
-			
-<div class="panel-heading">
-<div class="panel panel-default">
-			<div class="row justify-content-center">
-
-				<div class="col-sm-8">
-				
-				
-				<h2>Five Day Weather Forcast</h2>
-
-					<c:set var="isCelcius" value="${ sessionScope.inCelcius }" />
-					<c:url var="celciusFormAction"
-						value="details?code=${ park.parkCode }"></c:url>
 
 
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<div class="row justify-content-center">
 
-					<form action="${ celciusFormAction }" method="POST">
-
-						<input type="radio" name="chooseCelcius" value="${ false }"
-							<c:out value="${ isCelcius ? '' : 'checked' }"/>>Fahrenheit
-						<input type="radio" name="chooseCelcius" value="${ true }"
-							<c:out value="${ isCelcius ? 'checked' : '' }"/>>Celcius
-						<input type="submit" value="Submit!" />
-
-					</form>
-					
-				</div>
-				<!-- col div -->
-			</div>
-			<!-- row div -->
-			</div> <!-- panel heading -->
-
-<div class="panel-body">
-			<div class="row justify-content-center">
+						<div class="col-sm-8">
 
 
-				<c:forEach var="weather" items="${ weathers }">
+							<h2>Five Day Weather Forcast</h2>
 
-					<div class="col-sm-2">
-					
-						<div class="weathertile">
-							<c:url var="weatherImg"
-								value="img/weather/${ weather.weatherImgName }.png" />
-							<img id="weatherImage" src="${ weatherImg }" />
+							<c:set var="isCelcius" value="${ sessionScope.inCelcius }" />
+							<c:url var="celciusFormAction"
+								value="details?code=${ park.parkCode }"></c:url>
 
-							<p>
-								Low:
-								<c:out value="${ inCelcius ? weather.lowInC : weather.low }" />
-								<c:out value="${ isCelcius ? '° C' : '° F' }" />
-							</p>
-							<p>
-								High:
-								<c:out value="${ inCelcius ? weather.highInC : weather.high }" />
-								<c:out value="${ isCelcius ? '° C' : '° F' }" />
-							</p>
 
-							<p>
-								<c:out value="${ weather.forecast }" />
-							</p>
-							<p>
-								<c:out value="${ weather.forecastMessage }" />
-							</p>
-							<p>
-								<c:out value="${ weather.temperatureMesage }" />
-							</p>
+
+							<form action="${ celciusFormAction }" method="POST">
+
+								<input type="radio" name="chooseCelcius" value="${ false }"
+									<c:out value="${ isCelcius ? '' : 'checked' }"/>>Fahrenheit
+								<input type="radio" name="chooseCelcius" value="${ true }"
+									<c:out value="${ isCelcius ? 'checked' : '' }"/>>Celcius
+								<input type="submit" value="Submit!" />
+
+							</form>
+
 						</div>
-						<!-- weather tile -->
+						<!-- col div -->
+					</div>
+					<!-- row div -->
+				</div>
+				<!-- panel heading -->
+
+				<div class="panel-body">
+					<div class="row justify-content-center">
+
+
+						<c:forEach var="weather" items="${ weathers }">
+
+							<div class="col-sm-2">
+
+								<div class="weathertile">
+									<c:url var="weatherImg"
+										value="img/weather/${ weather.weatherImgName }.png" />
+									<img id="weatherImage" src="${ weatherImg }" />									
+									<p>
+										<c:out value="${ weather.forecast }" />
+									</p>
+									<p>
+										Low:
+										<c:out value="${ isCelcius ? weather.lowInC : weather.low }" />
+										<c:out value="${ isCelcius ? '° C' : '° F' }" />
+									</p>
+									<p>
+										High:
+										<c:out value="${ isCelcius ? weather.highInC : weather.high }" />
+										<c:out value="${ isCelcius ? '° C' : '° F' }" />
+									</p>
+									<p>
+										<c:out value="${ weather.forecastMessage }" />
+									</p>
+									<p>
+										<c:out value="${ weather.temperatureMesage }" />
+									</p>
+								</div>
+								<!-- weather tile -->
+
+							</div>
+							<!--  col div -->
+						</c:forEach>
+
+
 
 					</div>
-					<!--  col div -->
-				</c:forEach>
-
-
+					<!-- row div -->
+				</div>
+				<!-- panel body -->
 
 			</div>
-			<!-- row div -->
-			</div> <!-- panel body -->
-			
-			</div> <!-- panel -->
+			<!-- panel -->
 		</div>
 		<!--  content -->
 	</div>
 	<!--  container fluid -->
 </body>
-</html>
+
 
 <c:import url="/WEB-INF/jsp/common/footer.jsp" />
