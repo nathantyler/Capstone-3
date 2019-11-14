@@ -20,7 +20,7 @@ public abstract class DAOIntegrationTest {
 	@BeforeClass
 	public static void setupDataSource() {
 		dataSource = new SingleConnectionDataSource();
-		dataSource.setUrl("jdbc:postgresql://localhost:5432/historygeek");
+		dataSource.setUrl("jdbc:postgresql://localhost:5432/npgeek");
 		dataSource.setUsername("postgres");
 		dataSource.setPassword("postgres1");
 		/* The following line disables autocommit for connections
@@ -44,7 +44,7 @@ public abstract class DAOIntegrationTest {
 
 	/* This method provides access to the DataSource for subclasses so that
 	 * they can instantiate a DAO for testing */
-	public DataSource getDataSource() {
+	public static DataSource getDataSource() {
 		return dataSource;
 	}
 }

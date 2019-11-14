@@ -2,6 +2,7 @@ package com.techelevator.npgeek.model;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class Weather {
 
@@ -136,6 +137,24 @@ public class Weather {
 			counter++;
 		}
 		return sb.toString();
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == this)
+			return true;
+		if (!(obj instanceof Weather))
+			return false;
+		Weather w = (Weather) obj;
+
+		return this.parkCode.equals(w.getParkCode()) && this.fiveDayForecastValue.equals(w.getFiveDayForecastValue())
+				&& this.low.equals(w.getLow()) && this.high.equals(w.getHigh())
+				&& this.forecast.equals(w.getForecast());
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(this.parkCode, this.fiveDayForecastValue, this.low, this.high, this.forecast);
 	}
 
 }
