@@ -30,7 +30,7 @@
 						</p>
 						<p>
 							<c:out value="${ park.surveyCount }" />
-							National Park Geek(s) voted
+							National Park Geek<c:out value="${ park.surveyCount > 1 ? 's' : '' }"/> voted
 							<c:out value="${ park.parkName }" />
 							as their favorite!
 						</p>

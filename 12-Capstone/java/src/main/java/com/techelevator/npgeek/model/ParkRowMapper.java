@@ -20,7 +20,7 @@ public class ParkRowMapper implements RowMapper<Park> {
 		park.setState(rs.getString("state"));
 		park.setAcreage(rs.getInt("acreage"));
 		park.setElevationInFeet(rs.getInt("elevationinfeet"));
-		park.setMilesOfTrail(rs.getDouble("milesoftrails"));
+		park.setMilesOfTrail(rs.getDouble("milesoftrail"));
 		park.setNumberOfCampsites(rs.getInt("numberofcampsites"));
 		park.setClimate(rs.getString("climate"));
 		park.setYearFounded(rs.getInt("yearfounded"));
