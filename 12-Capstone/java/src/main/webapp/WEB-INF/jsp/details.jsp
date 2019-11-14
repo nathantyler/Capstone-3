@@ -12,80 +12,91 @@
 
 			<div class="row justify-content-center">
 				<div class="col-sm-10">
-					<h1 id="detailsName">
+					<h1 id="parkName">
 						<c:out value="${ park.parkName }" />
 					</h1>
 					<br />
-					<p id="detailsQuote">
-						"<c:out value="${ park.inspirationalQuote }" />" -
+					<p id="parkQuote">
+						"
+						<c:out value="${ park.inspirationalQuote }" />
+						" -
 						<c:out value="${ park.inspirationalQuoteSource }" />
 					</p>
-					<br/>
+					<br />
 
 
 					<c:url var="parkImg"
 						value="img/parks/${ park.parkCode.toLowerCase() }.jpg" />
-					<img class="park-image" src="${ parkImg }" />
+					<img class="detailImg" src="${ parkImg }" /> <br />
 
-					<br/>
+				</div>
+			</div>
+
+		<div class="row justify-content-center">
+				<div class="col-sm-5 containDescription">
+
+
 					<p class="parkDescription">
 						<c:out value="${ park.parkDescription }" />
 					</p>
 					<br />
-				</div>
-			</div>
 
-			<div class="row justify-content-center">
-				<div class="col-sm-5">
-					<p class="detailsInfo">
-						Location:
-						<c:out value="${ park.state }" />
-					</p>
-					<p class="detailsInfo">
-						Acreage:
-						<c:out value="${ park.acreage }" />
-					</p>
-					<p class="detailsInfo">
-						Elevation:
-						<c:out value="${ park.elevationInFeet }" />
-						ft.
-					</p>
-					<p class="detailsInfo">
-						Hiking:
-						<c:out value="${ park.milesOfTrail }" />
-						miles of trails
-					</p>
-					<p class="detailsInfo">
-						Number of campsites:
-						<c:out value="${ park.numberOfCampsites }" />
-					</p>
 
 				</div>
 				<!-- col div -->
 
 				<div class="col-sm-5">
 
-					<p class="detailsInfo">
-						Climate:
-						<c:out value="${ park.climate }" />
-					</p>
-					<p class="detailsInfo">
-						Founded in:
-						<c:out value="${ park.yearFounded }" />
-					</p>
-					<p class="detailsInfo">
-						Annual Visitors:
-						<c:out value="${ park.annualVisitorCount }" />
-					</p>
 
-					<p class="detailsInfo">
-						Number of animal Species:
-						<c:out value="${ park.numberOfAnimalSpecies }" />
-					</p>
-					<p class="detailsInfo">
-						Entry Fee: $
-						<c:out value="${ park.entryFee }" />
-					</p>
+					<table>
+						<tr>
+							<th>Park Details</th>
+							<th></th>
+						</tr>
+						<tr>
+							<td>Location:</td>
+							<td><c:out value="${ park.state }" /></td>
+						</tr>
+						<tr>
+							<td>Acreage</td>
+							<td><c:out value="${ park.acreage }" /></td>
+						</tr>
+						<tr>
+							<td>Elevation</td>
+							<td><c:out value="${ park.elevationInFeet }" /></td>
+						</tr>
+						<tr>
+							<td>Miles of Trails</td>
+							<td><c:out value="${ park.milesOfTrail }" /></td>
+						</tr>
+						<tr>
+							<td>Number of campsites:</td>
+							<td><c:out value="${ park.numberOfCampsites }" /></td>
+						</tr>
+						<tr>
+							<td>Climate:</td>
+							<td><c:out value="${ park.climate }" /></td>
+						</tr>
+						<tr>
+							<td>Founded in:</td>
+							<td><c:out value="${ park.yearFounded }" /></td>
+						</tr>
+						<tr>
+							<td>Annual Visitors:</td>
+							<td><c:out value="${ park.annualVisitorCount }" /></td>
+						</tr>
+						<tr>
+							<td>Number of animal Species:</td>
+							<td><c:out value="${ park.numberOfAnimalSpecies }" /></td>
+						</tr>
+						<tr>
+							<td>Entry Fee:</td>
+							<td><c:out value="${ park.entryFee }" /></td>
+						</tr>
+
+
+					</table>
+
 
 				</div>
 				<!-- col div -->
@@ -136,7 +147,10 @@
 								<div class="weathertile">
 									<c:url var="weatherImg"
 										value="img/weather/${ weather.weatherImgName }.png" />
-									<img id="weatherImage" src="${ weatherImg }" />									
+									<img id="weatherImage" src="${ weatherImg }" />
+									<p id="weatherParkName">
+										<c:out value="${ park.parkName }" />
+									</p>
 									<p>
 										<c:out value="${ weather.forecast }" />
 									</p>
@@ -150,12 +164,15 @@
 										<c:out value="${ isCelcius ? weather.highInC : weather.high }" />
 										<c:out value="${ isCelcius ? '° C' : '° F' }" />
 									</p>
-									<p>
-										<c:out value="${ weather.forecastMessage }" />
-									</p>
-									<p>
-										<c:out value="${ weather.temperatureMesage }" />
-									</p>
+
+									<div class="weatherPrep">
+										<p>
+											<c:out value="${ weather.forecastMessage }" />
+										</p>
+										<p>
+											<c:out value="${ weather.temperatureMesage }" />
+										</p>
+									</div>
 								</div>
 								<!-- weather tile -->
 

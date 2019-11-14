@@ -1,31 +1,50 @@
 @charset "ISO-8859-1";
 
-
 html {
-    height:100%;
+	height: 100%;
 }
+
 body {
-    min-height:100%; position:relative;
+	min-height: 100%;
+	position: relative;
+	background-color: #f0f0f0;
 }
+
+header {
+	background-color: white;
+}
+
 .footer {
-    background-color: rgb(200,200,200);
-    height: 20px;
-    position:absolute; bottom:0px;
-    width: 100%;
+	background-color: rgb(200, 200, 200);
+	height: 20px;
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
 }
 
-
-
-
+.detailImg {
+	display: block;
+	margin: auto;
+	width: 90%;
+	border-radius: 4px;
+}
 
 .park-image {
 	display: block;
 	margin: auto;
 	width: 90%;
+	border-radius: 4px;
+}
+
+.park-image:hover {
+	-webkit-transform: scale(1.05);
+	-ms-transform: scale(1.05);
+	transform: scale(1.05);
+	opacity: 0.5;
 }
 
 #logo {
-	width: 40%;
+	width: 30%;
 }
 
 .content {
@@ -42,17 +61,11 @@ body {
 	font-size: 16pt;
 }
 
-
 /*----home page----*/
 .home-row {
 	margin-bottom: 30px;
-}
-
-.home-text {
-	
-}
-.parkDescription {
-	font-size: 14pt;
+	border-bottom: 3px solid #4f4f4f;
+	padding-bottom: 30px;
 }
 
 /*----survey form-----*/
@@ -61,7 +74,10 @@ body {
 }
 
 .formcontent {
-  display: inline-block;
+	display: inline-block;
+	background-color: white;
+	padding: 16px;
+	border-radius: 8px;
 }
 
 .formbox {
@@ -74,22 +90,75 @@ body {
 	color: red;
 }
 
+.formtext {
+	font-size: 12pt;
+}
 
-/*----Details page----*/
-#detailsName{
+#formbody {
+	background-image: url('../img/background.jpg');
+	background-color: rgba(255, 255, 255, 0.4);
+	background-blend-mode: lighten;
+	background-attachment: fixed;
+	background-position: bottom;
+	background-repeat: repeat-y;
+	background-size: 100%;
+}
+
+/*---- text ----*/
+#parkName {
 	text-align: center;
 }
 
-#detailsQuote{
+#parkQuote {
 	text-align: center;
 	font-style: italic;
 	font-size: 14pt;
 }
-.detailsInfo {
+
+.parkInfo {
 	font-size: 12pt;
 }
 
+.parkDescription {
+	font-size: 14pt;
+}
 
+td, th {
+	font-size: 10pt;
+}
+
+h1 {
+	font-size: 26pt;
+}
+
+/*-- details----*/
+table {
+	border-collapse: collapse;
+	width: 100%;
+	padding: 20px;
+	border-bottom: 15px solid #383838;
+}
+
+th, td {
+	text-align: left;
+	padding: 8px;
+}
+
+tr:nth-child(even) {
+	background-color: #f2f2f2
+}
+
+th {
+	background-color: #383838;
+	color: white;
+}
+
+.containDescription {
+	border-top: 15px solid #383838;
+	border-bottom: 15px solid #383838;
+	padding: 20px;
+	background-color: #f2f2f2;
+}
 
 /*----Weather forecast----*/
 #weatherImage {
@@ -103,21 +172,25 @@ body {
 	background-color: white;
 	border-radius: 8px;
 	padding: 5px;
-	box-shadow: -2px -2px 7.5px 0px rgba(68, 68, 68, 0.4);
+	box-shadow: -2px 2px 7.5px rgba(68, 68, 68, 0.4);
+}
+
+#weatherParkName {
+	font-weight: bold;
+}
+
+.weatherPrep {
+	background-color: lightgrey;
+	border-radius: 8px;
+	padding: 5px;
 }
 
 .panel {
 	margin-top: 15px;
 	margin-bottom: 50px;
-	background-image: linear-gradient(to bottom right, #f5f9ff, #d7d7fc);
-}
-.panel > .panel-heading {
-	 background-image: linear-gradient(to bottom right, #d7d7fc, #f5f9ff);
-    
+	background-image: linear-gradient(to bottom right, #f5f9ff, #d7eefc);
 }
 
-
-
-
-
-
+.panel>.panel-heading {
+	background-image: linear-gradient(to bottom right, #d7eefc, #f5f9ff);
+}

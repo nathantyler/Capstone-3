@@ -14,6 +14,7 @@
 	<div class="container-fluid">
 	<div class="content">
 		<div class="row justify-content-center">
+			
 			<c:forEach var="park" items="${ parks }">
 				<div class="col-sm-5 home-row">
 					<c:url var="parkImg"
@@ -22,9 +23,9 @@
 					<%-- <c:set var="code" value="${ park.parkCode }" /> --%>
 					<a href="${ detailsLink }"><img class="park-image" src="${ parkImg }" /></a>
 				</div>
-				<div class="col-sm-7 home-row home-text">
+				<div class="col-sm-7 home-row">
 					<h1><c:out value="${ park.parkName }" /></h3>
-					<p class="detailsInfo">Location: <c:out value="${ park.state }" /></p>
+					<p class="parkInfo">Location: <c:out value="${ park.state }" /></p>
 					<p class="parkDescription"><c:out value="${ park.parkDescription }" /></p>
 				</div>
 

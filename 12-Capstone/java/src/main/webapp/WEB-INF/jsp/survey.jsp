@@ -7,7 +7,7 @@
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 
 
-<body>
+<body id="formbody">
 
 	
 	<div class="formcontainer">
@@ -18,7 +18,7 @@
 			<form:form modelAttribute="survey" method="POST" action="${ submit }">
 
 
-				<form:label path="parkCode">Favorite National Park:</form:label>
+				<form:label class="formtext" path="parkCode">Favorite National Park:</form:label>
 				<form:select path="parkCode" class="formbox">
 					<form:option value="">----Select a Park----</form:option>
 					<c:forEach var="park" items="${ parks }">
@@ -32,13 +32,13 @@
 
 
 				<div>
-					<form:label path="emailAddress">Email Address:</form:label>
+					<form:label class="formtext" path="emailAddress">Email Address:</form:label>
 					<form:input class="formbox" path="emailAddress" type="text"
 						placeholder="email Address" />
 					<form:errors path="emailAddress" cssClass="error" />
 				</div>
 
-				<label for="state">State</label>
+				<label class="formtext" for="state">State</label>
 				<form:select path="state" class="formbox">
 					<form:option value="">----Select a State----</form:option>
 					<form:option value="Alabama">Alabama</form:option>
@@ -100,17 +100,17 @@
 				<form:errors path="state" cssClass="error" />
 
 				<br />
-				<div class="activityoptions">
-				<label for="activityLevel">Your Activity Level:  </label>
+				
+				<label class="formtext" for="activityLevel">Your Activity Level:  </label>
 					<form:radiobutton path="activityLevel" value="inactive" />Inactive
 					<form:radiobutton path="activityLevel" value="sedentary" />Sedentary
 					<form:radiobutton path="activityLevel" value="active" />Active
 					<form:radiobutton path="activityLevel" value="extremely active" />Extremely Active
 				<form:errors path="activityLevel" cssClass="error" />
-				</div>
+				
 				<br />
 
-				<input type="submit" value="Sumbit!" class="formbox" />
+				<input type="submit" value="Submit!" class="formbox formtext" />
 			</form:form>
 		</div>
 		

@@ -20,21 +20,21 @@
 						<a href="${ detailsLink }"><img class="park-image"
 							src="${ parkImg }" /></a>
 					</div>
-					<div class="col-sm-7 home-row home-text">
+					<div class="col-sm-7 home-row">
 						<h1>
 							<c:out value="${ park.parkName }" />
 						</h1>
-						<p>
+						<p class="parkInfo">
 							Location:
 							<c:out value="${ park.state }" />
 						</p>
-						<p>
+						<p class="parkInfo">
 							<c:out value="${ park.surveyCount }" />
 							National Park Geek<c:out value="${ park.surveyCount > 1 ? 's' : '' }"/> voted
 							<c:out value="${ park.parkName }" />
 							as their favorite!
 						</p>
-						<p>
+						<p  class="parkDescription">
 							<c:out value="${ park.parkDescription }" />
 						</p>
 					</div>

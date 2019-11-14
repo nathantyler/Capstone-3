@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,7 +29,7 @@
 <meta charset="ISO-8859-1">
 <title>National Park Enthusiast</title>
 </head>
-
+<header>
 <c:url var="homeUrl" value="/" />
 <c:url var="surveyUrl" value="survey" />
 <c:url var="favoritesUrl" value="favorites" />
@@ -37,7 +38,7 @@
 <img id="logo" src="${ parkLogo }" />
 
 
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-inverse">
 	
 		<ul class="nav navbar-nav">
 			<li><a class="navLink" href="${ homeUrl }">Home Page</a></li>
@@ -46,4 +47,5 @@
 		</ul>
 	
 </nav>
+</header>
 
