@@ -26,8 +26,9 @@
 							<c:out value="${ park.parkName }" />
 						</form:option>
 					</c:forEach>
-					<form:errors path="parkCode" cssClass="error" />
+					
 				</form:select>
+				<form:errors path="parkCode" cssClass="error" />
 				<br />
 
 
