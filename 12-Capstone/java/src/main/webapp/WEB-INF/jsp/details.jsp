@@ -158,16 +158,17 @@
 									<p id="weatherParkName">
 										<c:out value="${ park.parkName }" />
 									</p>
-									<p>
-										Low:
-										<c:out value="${ isCelcius ? weather.lowInC : weather.low }" />
-										<c:out value="${ isCelcius ? '° C' : '° F' }" />
-									</p>
-									<p>
+									<p class="high">
 										High:
 										<c:out value="${ isCelcius ? weather.highInC : weather.high }" />
 										<c:out value="${ isCelcius ? '° C' : '° F' }" />
 									</p>
+									<p class="low">
+										Low:
+										<c:out value="${ isCelcius ? weather.lowInC : weather.low }" />
+										<c:out value="${ isCelcius ? '° C' : '° F' }" />
+									</p>
+									
 
 									<div class="weatherPrep">
 										<p>

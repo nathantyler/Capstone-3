@@ -16,7 +16,7 @@
 			<c:set var="count" value="${ 1 }"/>
 				<c:forEach var="park" items="${ favoriteParks }">
 				
-				<div class="col-sm-1 home-row rank-row">
+				<div class="col-sm-1 home-row">
 		
 				<p class="rank">#<c:out value="${count }"/></p>
 				<c:set var="count" value="${ count+1 }"/>

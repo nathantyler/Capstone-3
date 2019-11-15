@@ -174,6 +174,13 @@ h3 {
 	font-weight: bold;
 	
 }
+.low {
+	color: blue;
+}
+
+.high {
+	color: red;
+}
 
 
 
@@ -265,6 +272,7 @@ th {
 }
 .panel>.panel-heading form {
 	float: right;
+	
 }
 
 
