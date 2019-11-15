@@ -26,15 +26,15 @@ public class JdbcParkDao implements ParkDao {
 
 	@Override
 	public List<Park> getAllParks() {
-		String sql = "SELECT * FROM " + TABLE_NAME;// + " ORDER BY parkname ASC"; 
- 		return jdbcTemplate.query(sql, new ParkRowMapper()); 		
+		String sql = "SELECT * FROM " + TABLE_NAME; // + " ORDER BY parkname ASC"; 
+ 		return this.jdbcTemplate.query(sql, new ParkRowMapper()); 		
 	}
 
 	@Override
 	public Park getParkByParkCode(String code) {
 		String sql = "SELECT * FROM " + TABLE_NAME +
 					 " WHERE parkcode = ?";
-		return jdbcTemplate.queryForObject(sql, new ParkRowMapper(), code);
+		return this.jdbcTemplate.queryForObject(sql, new ParkRowMapper(), code);
 	}
 
 	@Override
@@ -52,7 +52,7 @@ public class JdbcParkDao implements ParkDao {
 					 "GROUP BY survey_result.parkcode, park.parkcode " +
 					 "ORDER BY count(survey_result.parkcode) DESC, park.parkname ASC) as surveyordering " +
 					 "WHERE surveycount > 0";
-		return jdbcTemplate.query(sql, new ParkRowMapper());
+		return this.jdbcTemplate.query(sql, new ParkRowMapper());
 	}
 
 }

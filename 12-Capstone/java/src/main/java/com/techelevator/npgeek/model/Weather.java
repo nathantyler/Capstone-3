@@ -33,35 +33,35 @@ public class Weather {
 	 * @return the parkCode
 	 */
 	public String getParkCode() {
-		return parkCode;
+		return this.parkCode;
 	}
 
 	/**
 	 * @return the fiveDayForecastValue
 	 */
 	public Integer getFiveDayForecastValue() {
-		return fiveDayForecastValue;
+		return this.fiveDayForecastValue;
 	}
 
 	/**
 	 * @return the low
 	 */
 	public Integer getLow() {
-		return low;
+		return this.low;
 	}
 
 	/**
 	 * @return the high
 	 */
 	public Integer getHigh() {
-		return high;
+		return this.high;
 	}
 
 	/**
 	 * @return the forecast
 	 */
 	public String getForecast() {
-		return forecast;
+		return this.forecast;
 	}
 
 	/**
@@ -100,26 +100,26 @@ public class Weather {
 	}
 
 	public Integer getLowInC() {
-		int fahr = low.intValue();
+		int fahr = this.low.intValue();
 		return Integer.valueOf((fahr - 32) * 5 / 9);
 	}
 
 	public Integer getHighInC() {
-		int fahr = high.intValue();
+		int fahr = this.high.intValue();
 		return Integer.valueOf((fahr - 32) * 5 / 9);
 	}
 
 	public String getForecastMessage() {
-		return messages.getOrDefault(forecast, "");
+		return messages.getOrDefault(this.forecast, "");
 	}
 
 	public String getTemperatureMesage() {
 		String message = "";
-		if (high.intValue() > 75)
+		if (this.high.intValue() > 75)
 			message = ABOVE_SEVENTYFIVE;
-		if (high.intValue() - low.intValue() > 20)
+		if (this.high.intValue() - this.low.intValue() > 20)
 			message += " " + TEMPERATURE_DIFFERENCE;
-		if (low.intValue() < 20)
+		if (this.low.intValue() < 20)
 			message += " " + BELOW_TWENTY;
 		return message;
 
@@ -137,7 +137,7 @@ public class Weather {
 		String delimiter = " ";
 		int counter = 0;
 		StringBuffer sb = new StringBuffer();
-		for (String s : forecast.split(delimiter)) {
+		for (String s : this.forecast.split(delimiter)) {
 			if (counter == 0)
 				sb.append(Character.toLowerCase(s.charAt(0)));
 			else

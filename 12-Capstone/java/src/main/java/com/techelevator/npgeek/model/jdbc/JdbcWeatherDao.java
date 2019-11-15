@@ -29,7 +29,7 @@ public class JdbcWeatherDao implements WeatherDao {
 		String sql = "SELECT * FROM " + TABLE_NAME +
 					 " WHERE parkcode = ?";
 		
- 		return jdbcTemplate.query(sql, new WeatherRowMapper(), code);
+ 		return this.jdbcTemplate.query(sql, new WeatherRowMapper(), code);
 	}
 
 }
