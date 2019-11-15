@@ -1,6 +1,9 @@
 package com.techelevator.npgeek.model;
 
+import java.time.LocalDateTime;
+import java.time.format.TextStyle;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 
@@ -120,6 +123,14 @@ public class Weather {
 			message += " " + BELOW_TWENTY;
 		return message;
 
+	}
+
+	public String getDayOfWeek() {
+		String day = "Today";
+		if (this.fiveDayForecastValue.intValue() > 1)
+			day = LocalDateTime.now().plusDays(this.fiveDayForecastValue.longValue() - 1).getDayOfWeek()
+					.getDisplayName(TextStyle.FULL, new Locale("en", "US"));
+		return day;
 	}
 
 	public String getWeatherImgName() {
