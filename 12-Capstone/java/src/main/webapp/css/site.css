@@ -32,7 +32,7 @@ header {
 .park-image {
 	display: block;
 	margin: auto;
-	width: 90%;
+	width: 98%;
 	border-radius: 4px;
 }
 
@@ -78,6 +78,7 @@ header {
 	background-color: white;
 	padding: 16px;
 	border-radius: 8px;
+	margin: 10%;
 }
 
 .formbox {
@@ -120,22 +121,61 @@ header {
 }
 
 .parkDescription {
-	font-size: 14pt;
+	font-size: 16pt;
 }
 
 td, th {
 	font-size: 10pt;
 }
 
-h1 {
+.parkName > a {
 	font-size: 26pt;
+	color: #383838;
+}
+
+h3 {
+	text-align: center;
+	font-weight: bold;
+	font-size: 14pt;
+}
+.fav-header {
+	text-align: center;
+
+	font-size: 40pt;
+	padding-top: 20px;
+	padding-bottom: 40px;
+	
 }
 
 .forecast-text {
 	text-align: center;
-	font-weight: bold;
-	font-size: 11pt;
+	
+	font-size: 10pt;
 }
+.icon > a {
+	font-size: 12pt;
+	color: #36702d;	
+	
+}
+.icon > a:hover {
+	text-decoration: none;
+	color: #6fc063;	
+	
+}
+
+.icon {
+	height: 12pt;
+	color: #36702d;
+	padding-right: 10px;
+}
+
+.rank {
+	font-size: 50pt;
+	font-weight: bold;
+	
+}
+
+
 
 /*-- details----*/
 table {
@@ -207,6 +247,7 @@ th {
 }
 .weather-header {
 	color: white;
+	font-size: 20pt;
 }
 
 .radio-text {
@@ -217,3 +258,17 @@ th {
 .panel>.panel-heading {
 	background-image: linear-gradient(to bottom right, #383838, #6b6b6b);
 }
+
+.panel>.panel-heading h2, .panel>.panel-heading form {
+	display: inline;
+	
+}
+.panel>.panel-heading form {
+	float: right;
+}
+
+
+
+
+
+
