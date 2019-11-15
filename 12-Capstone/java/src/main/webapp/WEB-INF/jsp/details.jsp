@@ -111,7 +111,7 @@
 						<div class="col-sm-8">
 
 
-							<h2>Five Day Weather Forcast</h2>
+							<h2 class="weather-header">Five Day Weather Forcast</h2>
 
 							<c:set var="isCelcius" value="${ sessionScope.inCelcius }" />
 							<c:url var="celciusFormAction"
@@ -122,10 +122,12 @@
 							<form action="${ celciusFormAction }" method="POST">
 
 								<input type="radio" name="chooseCelcius" value="${ false }"
-									<c:out value="${ isCelcius ? '' : 'checked' }"/>>Fahrenheit
+									<c:out value="${ isCelcius ? '' : 'checked' }"/>> 
+									<p class="radio-text">Fahrenheit</p>
 								<input type="radio" name="chooseCelcius" value="${ true }"
-									<c:out value="${ isCelcius ? 'checked' : '' }"/>>Celcius
-								<input type="submit" value="Submit!" />
+									<c:out value="${ isCelcius ? 'checked' : '' }"/>>
+									<p class="radio-text">Celcius</p>
+								<input class="formbox" type="submit" value="Convert Temperature" />
 
 							</form>
 
@@ -145,14 +147,15 @@
 							<div class="col-sm-2">
 
 								<div class="weathertile">
+									<h3 class="forecast-text">
+										<c:out value="${ weather.forecast.toUpperCase() }" />
+									</h3>
+								
 									<c:url var="weatherImg"
 										value="img/weather/${ weather.weatherImgName }.png" />
 									<img id="weatherImage" src="${ weatherImg }" />
 									<p id="weatherParkName">
 										<c:out value="${ park.parkName }" />
-									</p>
-									<p>
-										<c:out value="${ weather.forecast }" />
 									</p>
 									<p>
 										Low:
