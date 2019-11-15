@@ -27,6 +27,7 @@
 					<h1><c:out value="${ park.parkName }" /></h3>
 					<p class="parkInfo">Location: <c:out value="${ park.state }" /></p>
 					<p class="parkDescription"><c:out value="${ park.parkDescription }" /></p>
+					<p><a href="${ detailsLink }">Learn More</a></p>
 				</div>
 
 			</c:forEach>

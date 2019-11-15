@@ -64,7 +64,7 @@ header {
 /*----home page----*/
 .home-row {
 	margin-bottom: 30px;
-	border-bottom: 3px solid #4f4f4f;
+	border-bottom: 3px solid #383838;
 	padding-bottom: 30px;
 }
 
@@ -82,7 +82,7 @@ header {
 
 .formbox {
 	border-radius: 3px;
-	padding: 4px;
+	padding: 3px;
 	margin: 3px;
 }
 
@@ -131,6 +131,12 @@ h1 {
 	font-size: 26pt;
 }
 
+.forecast-text {
+	text-align: center;
+	font-weight: bold;
+	font-size: 11pt;
+}
+
 /*-- details----*/
 table {
 	border-collapse: collapse;
@@ -145,7 +151,7 @@ th, td {
 }
 
 tr:nth-child(even) {
-	background-color: #f2f2f2
+	background-color: #ffffff;
 }
 
 th {
@@ -157,7 +163,7 @@ th {
 	border-top: 15px solid #383838;
 	border-bottom: 15px solid #383838;
 	padding: 20px;
-	background-color: #f2f2f2;
+	background-color: #ffffff;
 }
 
 /*----Weather forecast----*/
@@ -170,7 +176,7 @@ th {
 .weathertile {
 	margin-top: 10px;
 	background-color: white;
-	border-radius: 8px;
+	border-radius: 4px;
 	padding: 5px;
 	box-shadow: -2px 2px 7.5px rgba(68, 68, 68, 0.4);
 }
@@ -188,9 +194,26 @@ th {
 .panel {
 	margin-top: 15px;
 	margin-bottom: 50px;
-	background-image: linear-gradient(to bottom right, #f5f9ff, #d7eefc);
+	
+	background-image: url('../img/background.jpg');
+	background-color: rgba(255, 255, 255, 0.4);
+	background-blend-mode: lighten;
+	
+	background-position: bottom;
+	background-repeat: repeat-y;
+	background-size: 100%;
+
+	/*background-image: linear-gradient(to bottom right, #6b6b6b, #383838);*/
+}
+.weather-header {
+	color: white;
+}
+
+.radio-text {
+	color: white;
+	display: inline;
 }
 
 .panel>.panel-heading {
-	background-image: linear-gradient(to bottom right, #d7eefc, #f5f9ff);
+	background-image: linear-gradient(to bottom right, #383838, #6b6b6b);
 }
