@@ -3,5 +3,5 @@
 
 
 
-<footer class="footer"> page footer </footer>
+<footer class="footer"> 2019 - Tech Elevator </footer>
 </html>
